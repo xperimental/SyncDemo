@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Numbers</string>
+    <string name="numbers_empty">Number list is empty!\nAdd some...</string>
+    <string name="numbers_refresh">Refresh</string>
+    <string name="numbers_add">Add number...</string>
+    <string name="dialog_title">Pick a number</string>
+    <string name="context_delete">Delete</string>
+</resources>
