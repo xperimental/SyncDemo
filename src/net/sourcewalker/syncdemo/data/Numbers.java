@@ -19,6 +19,10 @@ public final class Numbers implements BaseColumns {
 
     public static final String STATUS = "status";
 
+    public static final String STATUS_LOCAL = "local";
+    public static final String STATUS_REMOTE = "remote";
+    public static final String STATUS_DELETED = "deleted";
+
     public static final String[] DEFAULT_PROJECTION = new String[] { _ID,
             STATUS };
 

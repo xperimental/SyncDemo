@@ -84,7 +84,7 @@ public class NumberListActivity extends ListActivity implements OnClickListener 
         removeDialog(DIALOG_NUMBER);
         ContentValues values = new ContentValues();
         values.put(Numbers._ID, Integer.parseInt(suggestions.get(which)));
-        values.put(Numbers.STATUS, "local");
+        values.put(Numbers.STATUS, Numbers.STATUS_LOCAL);
         getContentResolver().insert(Numbers.CONTENT_URI, values);
     }
 
@@ -101,7 +101,7 @@ public class NumberListActivity extends ListActivity implements OnClickListener 
             AdapterContextMenuInfo info = (AdapterContextMenuInfo) item
                     .getMenuInfo();
             ContentValues values = new ContentValues();
-            values.put(Numbers.STATUS, "deleted");
+            values.put(Numbers.STATUS, Numbers.STATUS_DELETED);
             getContentResolver().update(
                     ContentUris.withAppendedId(Numbers.CONTENT_URI, info.id),
                     values, null, null);

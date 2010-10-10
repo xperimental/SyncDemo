@@ -19,10 +19,12 @@ public class NumbersProvider extends ContentProvider {
     private static final String TAG = "NumbersProvider";
     private static final int MATCH_LIST = 1;
     private static final int MATCH_ITEM = 2;
+    private static final int MATCH_DELETED = 3;
 
     static {
         matcher = new UriMatcher(UriMatcher.NO_MATCH);
         matcher.addURI(Numbers.AUTHORITY, "/", MATCH_LIST);
+        matcher.addURI(Numbers.AUTHORITY, "/deleted", MATCH_DELETED);
         matcher.addURI(Numbers.AUTHORITY, "#", MATCH_ITEM);
 
         projectionMap = new HashMap<String, String>();
@@ -66,6 +68,7 @@ public class NumbersProvider extends ContentProvider {
         case MATCH_ITEM:
             return Numbers.CONTENT_TYPE_ITEM;
         case MATCH_LIST:
+        case MATCH_DELETED:
             return Numbers.CONTENT_TYPE;
         default:
             throw new IllegalArgumentException("Unknown URI: " + uri);
@@ -100,6 +103,12 @@ public class NumbersProvider extends ContentProvider {
         }
         switch (matcher.match(uri)) {
         case MATCH_LIST:
+            query.appendWhere(Numbers.STATUS + " != '" + Numbers.STATUS_DELETED
+                    + "'");
+            break;
+        case MATCH_DELETED:
+            query.appendWhere(Numbers.STATUS + " == '" + Numbers.STATUS_DELETED
+                    + "'");
             break;
         case MATCH_ITEM:
             query.appendWhere(Numbers._ID + " == " + uri.getLastPathSegment());
