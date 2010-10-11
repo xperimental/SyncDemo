@@ -6,4 +6,17 @@
     <string name="numbers_add">Add number...</string>
     <string name="dialog_title">Pick a number</string>
     <string name="context_delete">Delete</string>
+    <string name="authenticator">SyncDemo Account</string>
+    <string name="auth_prefs_title">Account Management</string>
+    <string name="auth_prefs_button">Change settings</string>
+    <string name="auth_prefs_summary">Allows you to change your username.</string>
+    <string name="auth_username">Username:</string>
+    <string name="auth_cancel">Cancel</string>
+    <string name="auth_commit">Save</string>
+    <string name="auth_toast_cancelled">Account operation cancelled.</string>
+    <string name="auth_toast_created">Account has been created.</string>
+    <string name="auth_toast_createfailed">Account creation failed!</string>
+    <string name="auth_toast_edited">Account edited...</string>
+    <string name="auth_toast_onlyone">Error: Can only create one account of that type!</string>
+    <string name="numbers_toast_needaccount">Need an account for server communication! Closing app.</string>
 </resources>

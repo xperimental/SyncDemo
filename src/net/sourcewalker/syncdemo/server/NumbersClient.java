@@ -35,6 +35,10 @@ public class NumbersClient {
         this.client = new DefaultHttpClient();
     }
 
+    public NumbersClient(String user) throws ServerException {
+        this("sourcewalker.net", 5984, "numbers", user);
+    }
+
     public boolean exists() throws ServerException {
         HttpGet get = new HttpGet(serverUri);
         try {

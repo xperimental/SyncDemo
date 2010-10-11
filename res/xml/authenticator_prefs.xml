@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="@string/auth_prefs_title" />
+    <PreferenceScreen
+        android:title="@string/auth_prefs_button"
+        android:summary="@string/auth_prefs_summary">
+        <intent
+            android:action="net.sourcewalker.syncdemo.auth.AuthenticatorActivity.EDIT"
+            android:targetPackage="net.sourcewalker.syncdemo"
+            android:targetClass="net.sourcewalker.syncdemo.auth.AuthenticatorActivity" />
+    </PreferenceScreen>
+</PreferenceScreen>
