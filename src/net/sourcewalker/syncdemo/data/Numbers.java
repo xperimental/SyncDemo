@@ -7,7 +7,11 @@ public final class Numbers implements BaseColumns {
 
     public static final String AUTHORITY = "net.sourcewalker.syncdemo";
 
-    public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY);
+    public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY
+            + "/numbers");
+
+    public static final Uri CONTENT_URI_ALL = Uri.withAppendedPath(CONTENT_URI,
+            "all");
 
     public static final String CONTENT_TYPE = "vnd.android.cursor.dir/"
             + AUTHORITY;

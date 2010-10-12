@@ -19,4 +19,5 @@
     <string name="auth_toast_edited">Account edited...</string>
     <string name="auth_toast_onlyone">Error: Can only create one account of that type!</string>
     <string name="numbers_toast_needaccount">Need an account for server communication! Closing app.</string>
+    <string name="numbers_toast_noaccount">No account found to synchronize!</string>
 </resources>

@@ -15,6 +15,7 @@ import android.accounts.OperationCanceledException;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ListActivity;
+import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.DialogInterface;
@@ -74,6 +75,15 @@ public class NumberListActivity extends ListActivity implements OnClickListener 
             showDialog(DIALOG_NUMBER);
             break;
         case R.id.numbers_refresh:
+            Account[] accounts = accountManager
+                    .getAccountsByType(NumbersAuthenticator.TYPE);
+            if (accounts.length == 0) {
+                Toast.makeText(this, R.string.numbers_toast_noaccount,
+                        Toast.LENGTH_LONG).show();
+            } else {
+                ContentResolver.requestSync(accounts[0], Numbers.AUTHORITY,
+                        new Bundle());
+            }
             break;
         }
         return true;

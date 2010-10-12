@@ -1,9 +1,11 @@
 package net.sourcewalker.syncdemo.auth;
 
 import net.sourcewalker.syncdemo.R;
+import net.sourcewalker.syncdemo.data.Numbers;
 import android.accounts.Account;
 import android.accounts.AccountAuthenticatorActivity;
 import android.accounts.AccountManager;
+import android.content.ContentResolver;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -104,8 +106,8 @@ public class AuthenticatorActivity extends AccountAuthenticatorActivity
         boolean accountCreated = accountManager.addAccountExplicitly(account,
                 null, null);
         if (accountCreated) {
-            // ContentResolver.setSyncAutomatically(account,
-            // Numbers.AUTHORITY, true);
+            ContentResolver.setSyncAutomatically(account, Numbers.AUTHORITY,
+                    true);
 
             Bundle result = new Bundle();
             result.putString(AccountManager.KEY_ACCOUNT_NAME, username);

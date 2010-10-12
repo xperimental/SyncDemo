@@ -20,12 +20,14 @@ public class NumbersProvider extends ContentProvider {
     private static final int MATCH_LIST = 1;
     private static final int MATCH_ITEM = 2;
     private static final int MATCH_DELETED = 3;
+    private static final int MATCH_LIST_ALL = 4;
 
     static {
         matcher = new UriMatcher(UriMatcher.NO_MATCH);
-        matcher.addURI(Numbers.AUTHORITY, "/", MATCH_LIST);
-        matcher.addURI(Numbers.AUTHORITY, "/deleted", MATCH_DELETED);
-        matcher.addURI(Numbers.AUTHORITY, "#", MATCH_ITEM);
+        matcher.addURI(Numbers.AUTHORITY, "numbers", MATCH_LIST);
+        matcher.addURI(Numbers.AUTHORITY, "numbers/all", MATCH_LIST_ALL);
+        matcher.addURI(Numbers.AUTHORITY, "numbers/deleted", MATCH_DELETED);
+        matcher.addURI(Numbers.AUTHORITY, "numbers/#", MATCH_ITEM);
 
         projectionMap = new HashMap<String, String>();
         for (String col : Numbers.DEFAULT_PROJECTION) {
@@ -112,6 +114,8 @@ public class NumbersProvider extends ContentProvider {
             break;
         case MATCH_ITEM:
             query.appendWhere(Numbers._ID + " == " + uri.getLastPathSegment());
+            break;
+        case MATCH_LIST_ALL:
             break;
         default:
             throw new IllegalArgumentException("Unknown URI: " + uri);
